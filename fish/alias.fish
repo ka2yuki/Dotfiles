@@ -19,6 +19,9 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+## tree cmd. for react.
+alias tree='tree -IF "n*|pub*|pack*|READ*|yarn*|report*"'
+
 ## npm
 alias n='npm'
 alias nr ='npm run'
@@ -49,5 +52,5 @@ alias sudo='sudo '
 
 # グローバルエイリアス
 # ex) ps G rails
-alias -g L='| less'
-alias -g G='| grep'
+# alias -g L='| less'
+# alias -g G='| grep'

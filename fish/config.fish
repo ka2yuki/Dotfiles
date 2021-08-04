@@ -4,4 +4,6 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "(rbenv init -)"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="$PATH:/usr/local/bin/yarn"
+echo $PATH
 

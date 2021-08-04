@@ -1,6 +1,6 @@
 [user]
-	name = katsuyuki
-	email = mori1103k@gmail.com
+	name = ka2yukimori
+	email = katsuyuki.mori@enjoyworks.tv
 	# namm = ka2yuki
 [core]
 	# excludesfile = /Users/k/.gitignore_global
@@ -30,3 +30,10 @@
 [core]
 	excludesfile = /Users/o/.gitignore_global
 	editor = /usr/bin/nano
+[pull]
+	rebase = false
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
