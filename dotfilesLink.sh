@@ -15,7 +15,7 @@ case ${OSTYPE} in
         export CLICOLOR=1
         alias ls='ls -a -G -F'
         # local SETTINGS The VSCode.settings and Markdwon.css to SAME GIT-REPO
-        ln -fnsv ${PWD}/settings.json ${HOME}/Library/Application\ Support/Code/User/settings.json
+        # ln -fnsv ${PWD}/VSCode/settings.json ${HOME}/Library/Application\ Support/Code/User/settings.json
         ln -fnsv ${PWD}/md_preview.css ${HOME}/Library/Application\ Support/Code/User/md_preview.css
         ;;
     linux*)
