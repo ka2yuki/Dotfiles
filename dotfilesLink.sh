@@ -218,7 +218,10 @@ fi
 ln -sf ${PWD}/fish/fish_prompt.fish ${HOME}/.config/fish/functions/fish_prompt.fish
 ln -sf ${PWD}/fish/.fish_user_key_bindings.fish ${HOME}/.config/fish/functions/fish_user_key_bindings.fish
 # Other
-ln -sf ${PWD}/.gitconfig ${HOME}/.gitconfig
+# ln -sf ${PWD}/Desktop/Dotfile/.gitconfig ${HOME}/.gitconfig
+cp ${PWD}/Desktop/Dotfile/.gitconfig ${HOME}/.gitconfig
+sudo cp ${PWD}/Desktop/Dotfile/hosts /etc/hosts
+
 # ln -sf ${PWD}/com.googlecode.iterm2.plist${PWD} 
 
 # fish cmd exist? check!
@@ -362,3 +365,8 @@ done
 echo "==================="
 echo "PLEASE type 'fish'"
 echo "==================="
+echo 
+echo 
+echo "Done!!🎉"
+echo 
+echo 

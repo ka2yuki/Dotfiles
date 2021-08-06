@@ -1,7 +1,6 @@
 [user]
 	name = ka2yukimori
 	email = katsuyuki.mori@enjoyworks.tv
-	# namm = ka2yuki
 [core]
 	# excludesfile = /Users/k/.gitignore_global
 [difftool "sourcetree"]
