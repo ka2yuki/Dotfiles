@@ -53,6 +53,17 @@ esac
 
 
 
+ln -sf ${PWD}/zsh/.zsh_profile ${HOME}/.zsh_profile
+ln -sf ${PWD}/zsh/.zshrc ${HOME}/.zshrc
+ln -sf ${PWD}/bash/.bash_profile ${HOME}/.bash_profile
+ln -sf ${PWD}/bash/.bashrc ${HOME}/.bashrc
+ln -sf ${PWD}/bash/.bashrc.alias ${HOME}/.bashrc.alias
+ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
+ln -sf ${PWD}/.sqliterc ${HOME}/.sqliterc
+
+
+
+
 echo "======================================="
 echo "rbenv install"
 echo "======================================="
@@ -227,38 +238,10 @@ fi
 # fi
 
 
-
-ln -sf ${PWD}/.zshrc ${HOME}/.zsh_profile
-ln -sf ${PWD}/.zshrc ${HOME}/.zshrc
-
-ln -sf ${PWD}/.bash_profile ${HOME}/.bash_profile
-ln -sf ${PWD}/.bashrc ${HOME}/.bashrc
-ln -sf ${PWD}/.bashrc.alias ${HOME}/.bashrc.alias
-ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
-ln -sf ${PWD}/.sqliterc ${HOME}/.sqliterc
-# Fish
-# if [ -e {確認したいファイルかディレクトリのパス} ]; then
-# if [ -e ~/.config ]; then
-#     # 存在する場合
-# else
-#     # 存在しない場合
-# fi
-
-# =======================================
-ln -sf ${PWD}/fish/config.fish ${HOME}/.config/fish/config.fish
-echo "🔎 Check DIR ~/.config/fish/conf.d"
-if [ -e ${HOME}/.config/fish/conf.d ]; then
-  ln -sf ${PWD}/fish/alias.fish ${HOME}/.config/fish/conf.d/alias.fish
-else
-  mkdir ${HOME}/.config/fish/conf.d
-  ln -sf ${PWD}/fish/alias.fish ${HOME}/.config/fish/conf.d/alias.fish
-fi
-ln -sf ${PWD}/fish/fish_prompt.fish ${HOME}/.config/fish/functions/fish_prompt.fish
-ln -sf ${PWD}/fish/.fish_user_key_bindings.fish ${HOME}/.config/fish/functions/fish_user_key_bindings.fish
 # Other
 # ln -sf ${PWD}/Desktop/Dotfile/.gitconfig ${HOME}/.gitconfig
 cp ${PWD}/.gitconfig ${HOME}/.gitconfig
-sudo cp ${PWD}/hosts ${HOME}/etc/hosts
+# sudo cp ${PWD}/hosts ${HOME}/etc/hosts
 # ln -sf ${PWD}/com.googlecode.iterm2.plist${PWD} 
 
 
@@ -267,7 +250,8 @@ sudo cp ${PWD}/hosts ${HOME}/etc/hosts
 # fish cmd exist? check!
 # fish_config > /dev/null 2>&1
 # fi
-echo "🔎 Now Check fish"
+echo "======================================="
+echo "🔎 Check fish🐠.. "
 echo "======================================="
 # if type '$(which fish)' > /dev/null 2>&1; then
 # なぜか上記では 
@@ -287,13 +271,33 @@ if [ -e "$(which fish)" ]; then
 else
   echo $(which fish >&2)
   echo "🐷 NOT Exist! fish_config.. 🐷" #コマンドが存在しないときの処理
-  exit 
   brew install fish
-  chsh -s $(which fish) 
   echo `fish`
-  echo 'fish処理完了!!🎉'
+  echo 'fish処理完了!!🎉' 
   sleep 3
 fi
+
+echo "======================================="
+echo "fish config setup"
+echo "======================================="
+
+################
+# fish config
+################
+# ln -sf ${PWD}/fish/config.fish ${HOME}/.config/fish/config.fish
+# echo "🔎 Check DIR ~/.config/fish/conf.d"
+# if [ -e ${HOME}/.config/fish/conf.d ]; then
+#   ln -sf ${PWD}/fish/alias.fish ${HOME}/.config/fish/conf.d/alias.fish
+# else
+#   mkdir ${HOME}/.config/fish/conf.d
+#   ln -sf ${PWD}/fish/alias.fish ${HOME}/.config/fish/conf.d/alias.fish
+# fi
+# ln -sf ${PWD}/fish/fish_prompt.fish ${HOME}/.config/fish/functions/fish_prompt.fish
+# ln -sf ${PWD}/fish/.fish_user_key_bindings.fish ${HOME}/.config/fish/functions/fish_user_key_bindings.fish
+###################
+# fish config END #
+###################
+
 
 # if [ $? -eq 127 ]; then
 #   echo "Exist! FISH" 
@@ -347,6 +351,13 @@ echo "###########################"
 # When press below command..   
 #
 # > $ fish_config
+echo "--------------"
+echo "omy install.." # https://github.com/oh-my-fish/oh-my-fish
+echo "--------------"
+sleep 3
+curl -L https://get.oh-my.fish > install
+fish install --path=~/.local/share/omf --config=~/.config/omf
+
 
 ## vim plug setting
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -356,16 +367,31 @@ omf install rbenv
 ## VimにPowerlineの　fish版です。
 fisher add oh-my-fish/theme-bobthefish
 
+
+########################################
+# fish の　テーマを当てるため。 powerLine
+########################################
 echo "======================================="
-echo "poserline install at ~/fonts"
+echo "powerline install at ~/fonts"
 echo "======================================="
 cd $HOME
 # 文字化け 改善
 git clone https://github.com/powerline/fonts.git --depth=1
 # install
-cd fonts
+cd $HOME/fonts
 ./install.sh
-
+# clean-up a bit
+cd ..
+rm -rf fonts
+echo "ここにある."
+ls /Users/$USER/Library/Fonts 
+sleep 3
+echo "==========================="
+echo "使用できる PowerLine fonts."
+echo "==========================="
+sleep 2 
+ls /Users/o/Library/Fonts |grep Powerline
+echo "上記のフォントを使っているターミナルに設定しfish用にPowerLineを設定してください。"
 
 # =======================================
 # echo -e "\e[36;40;4m下線つき\e[m"
@@ -393,6 +419,8 @@ git clone https://github.com/dracula/iterm.git
 # to hyper
 hyper install hyper-dracula
 # ADD cmd+. , Type to Fonts NAME!!
+
+
 
 echo "======================================="
 echo "Fonts install 白玄"

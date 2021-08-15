@@ -7,3 +7,6 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="$PATH:/usr/local/bin/yarn"
 echo $PATH
 
+
+#　テーマ
+set fish_theme agnoster
