@@ -1,7 +1,9 @@
 # !/bin/bash
 # =======================================
 # OS 別の設定
+echo '---------'
 echo $OSTYPE
+echo '---------'
 case ${OSTYPE} in
     darwin*)
         #Mac用の設定
@@ -52,41 +54,75 @@ esac
 
 
 echo "======================================="
-echo "RUBY install"
+echo "rbenv install"
 echo "======================================="
+sleep .2
 if type 'rbenv' > /dev/null 2>&1; then
   echo '✅ Exist! .rbenv cmd.'
+  sleep .3
 else
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-  cd ~/.rbenv && src/configure && make -C src
-  # When not throgh PATH.
-  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile 
+  brew install rbenv
+  # brew upgrade rbenv ruby-build
+  rbenv init
+
+  # git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  # cd ~/.rbenv && src/configure && make -C src
+  echo "When not throgh PATH."
+  # export PATH=$PATH:追加するディレクトリ名
+  # echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile 
+  echo 'export PATH="$HOME/.rbenv/shims:$PATH"' >> $HOME/.bash_profile 
+  echo 'export PATH="$HOME/.rbenv/shims:$PATH"' >> $HOME/.zsh_profile 
+  echo 'eval "$(rbenv init -)"' >> $HOME/.bash_profile
+  echo 'eval "$(rbenv init -)"' >> $HOME/.zsh_profile
+  echo 'eval "$(rbenv init -)"' >> $HOME/.zshrc
   # 上記 .bash_profile に追記したモノを 更新させる。
-  source ~/.bash_profile
+  source $HOME/.bash_profile
+  source $HOME/.zsh_profile
+  source $HOME/.zshrc
+  # echo 'eval "$(rbenv init -)"' >> ~/.bash_profile 
+  # or
+  # eval "$(rbenv init -)"
 
-  echo 'eval "$(rbenv init -)"' >> ~/.bash_profile # ✅
-  or
-  eval "$(rbenv init -)"
+  echo '!!Check rbenv with rbenv-docker..'
+  echo "----------------------------------"
+  sleep 2
+  echo '.'
+  sleep 2
+  echo '.'
+  sleep 2
+  echo '.'
+  sleep 2
+  curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
+  echo "------------------------------"
+  echo "list latest stable versions:"
+  echo "------------------------------"
+  rbenv install -l
 
-  echo ✅ PATH: OK. so far.
+  echo "✅ rbenv install done."
+  echo "Use rbenv install [ver] && rbenv versions"
+  rbenv versions
+  echo "------------------------------"
+  ruby -v
+  echo "🎉 ruby installed by rbenv. 🎉"
+  sleep 3
+  exit
 
+
+  # ++++++++++++++++++++
+  # GIT install version | not used.
+  # ++++++++++++++++++++
   # Install ruby-build, which provides the rbenv install command that simplifies the process of installing new Ruby versions.
-
-  echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
   source ~/.bash_profile
   # 5. 🔎 Verify that rbenv is properly set up using this rbenv-doctor script:
   curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
-
   rbenv install --list
   rbenv install 2.7.2
-
   rbenv versions
   rbenv use 2.7.2
   eval "$(rbenv init -)"
   # or
   echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
   source ~/.bash_profile
-
   # When not available `rbenv install`, install plugin ruby-build.
   # As an rbenv plugin
   # https://github.com/rbenv/ruby-build#installation
@@ -94,9 +130,10 @@ else
   git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 fi
 
-# =======================================
-# GIT INSTALL
-# =======================================
+
+echo "======================================="
+echo "GIT INSTALL"
+echo "======================================="
 if type 'git' > /dev/null 2>&1; then
   echo '✅ Exist! git cmd.'
 else
@@ -121,22 +158,23 @@ else
   echo NEW:$(git --version), OLD:$OLD_GIT_VER
 fi
 
+
 # =======================================
-echo "🔎 Check Brew🍺 now"
-sleep 1
-echo 🐣
-sleep .3
-echo .
-sleep .3
-echo .
-sleep 1
-echo 🐥
-sleep .3
-echo .
-sleep .3
-echo .
-sleep 1
-echo "======================================="
+# echo "🔎 Check Brew🍺 now"
+# sleep 1
+# echo 🐣
+# sleep .3
+# echo .
+# sleep .3
+# echo .
+# sleep 1
+# echo 🐥
+# sleep .3
+# echo .
+# sleep .3
+# echo .
+# sleep 1
+# echo "======================================="
 # if type "brew" > /dev/null 2>&1; then
 #   echo "Exist! brew ✅" #コマンドが存在する時の処理
 # else
@@ -146,58 +184,58 @@ echo "======================================="
 
 
 # Check for Homebrew
-if test ! $(which brew)
-then
-  echo "🐽 NOT exist Brew!" #コマンドが存在しないときの処理
-  echo "  Installing Homebrew for you."
-  # Install the correct homebrew for each OS type
-  if test "$(uname)" = "Darwin"
-  then
-    /bin/bash cd $HOME && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    sleep 1
-    echo 🐓
-    sleep .3
-    echo .
-    sleep .3
-    echo .
-    sleep .3
-    echo 🍗
-    sleep 1
-    echo "🎉 Installed! Brew🍺 " #コマンドが存在する時の処理
-    sleep 1
-  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-  then
-    /bin/bash cd $HOME && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    sleep 1
-    echo 🐓
-    sleep .3
-    echo .
-    sleep .3
-    echo .
-    sleep .3
-    echo 🍗
-    sleep .3
-    echo .
-    sleep 1
-    echo "🎉 Installed! Brew🍺 " #コマンドが存在する時の処理
-    sleep 1
-  fi
-fi
+# if test ! $(which brew)
+# then
+#   echo "🐽 NOT exist Brew!" #コマンドが存在しないときの処理
+#   echo "  Installing Homebrew for you."
+#   # Install the correct homebrew for each OS type
+#   if test "$(uname)" = "Darwin"
+#   then
+#     /bin/bash cd $HOME && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#     # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#     # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#     sleep 1
+#     echo 🐓
+#     sleep .3
+#     echo .
+#     sleep .3
+#     echo .
+#     sleep .3
+#     echo 🍗
+#     sleep 1
+#     echo "🎉 Installed! Brew🍺 " #コマンドが存在する時の処理
+#     sleep 1
+#   elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+#   then
+#     /bin/bash cd $HOME && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#     # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#     # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#     sleep 1
+#     echo 🐓
+#     sleep .3
+#     echo .
+#     sleep .3
+#     echo .
+#     sleep .3
+#     echo 🍗
+#     sleep .3
+#     echo .
+#     sleep 1
+#     echo "🎉 Installed! Brew🍺 " #コマンドが存在する時の処理
+#     sleep 1
+#   fi
+# fi
 
 
 
-ln -sf ${PWD}/.zshrc ${PWD}/.zsh_profile
-ln -sf ${PWD}/.zshrc ${PWD}/.zshrc
+ln -sf ${PWD}/.zshrc ${HOME}/.zsh_profile
+ln -sf ${PWD}/.zshrc ${HOME}/.zshrc
 
-ln -sf ${PWD}/.bash_profile ${PWD}/.bash_profile
-ln -sf ${PWD}/.bashrc ${PWD}/.bashrc
-ln -sf ${PWD}/.bashrc.alias ${PWD}/.bashrc.alias
-ln -sf ${PWD}/.vimrc ${PWD}/.vimrc
-ln -sf ${PWD}/.sqliterc ${PWD}/.sqliterc
+ln -sf ${PWD}/.bash_profile ${HOME}/.bash_profile
+ln -sf ${PWD}/.bashrc ${HOME}/.bashrc
+ln -sf ${PWD}/.bashrc.alias ${HOME}/.bashrc.alias
+ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
+ln -sf ${PWD}/.sqliterc ${HOME}/.sqliterc
 # Fish
 # if [ -e {確認したいファイルかディレクトリのパス} ]; then
 # if [ -e ~/.config ]; then
@@ -219,10 +257,12 @@ ln -sf ${PWD}/fish/fish_prompt.fish ${HOME}/.config/fish/functions/fish_prompt.f
 ln -sf ${PWD}/fish/.fish_user_key_bindings.fish ${HOME}/.config/fish/functions/fish_user_key_bindings.fish
 # Other
 # ln -sf ${PWD}/Desktop/Dotfile/.gitconfig ${HOME}/.gitconfig
-cp ${PWD}/Desktop/Dotfile/.gitconfig ${HOME}/.gitconfig
-sudo cp ${PWD}/Desktop/Dotfile/hosts /etc/hosts
-
+cp ${PWD}/.gitconfig ${HOME}/.gitconfig
+sudo cp ${PWD}/hosts ${HOME}/etc/hosts
 # ln -sf ${PWD}/com.googlecode.iterm2.plist${PWD} 
+
+
+
 
 # fish cmd exist? check!
 # fish_config > /dev/null 2>&1
@@ -234,15 +274,16 @@ echo "======================================="
 if [ -e "$(which fish)" ]; then
   echo $(which fish >&1)
   echo "✅ Exist! FISH" #コマンドが存在する時の処理
+  chsh -s $(which fish) 
+  sleep 3
   # FISH=$(which fish)
   # echo `/usr/local/bin/fish`
   # echo $SHELL
   # echo $FISH
   # echo $($SHELL -eq $FISH)
   # if test ! $($SHELL!=$FISH); then
-    chsh -s $(which fish) 
   # fi
-  echo 'fish処理完了!!🎉'
+  # echo 'fish処理完了!!🎉'
 else
   echo $(which fish >&2)
   echo "🐷 NOT Exist! fish_config.. 🐷" #コマンドが存在しないときの処理
@@ -251,6 +292,7 @@ else
   chsh -s $(which fish) 
   echo `fish`
   echo 'fish処理完了!!🎉'
+  sleep 3
 fi
 
 # if [ $? -eq 127 ]; then
@@ -262,6 +304,7 @@ fi
 echo "🔎 Now Check git.io/fisher"
 echo "======================================="
 echo "this's Fisher Extention-Management-Tool."
+sleep 3
 # install fisher for fish extention management tool.
 if [ -e "$HOME/.config/fish/functions/fisher.fish" ]; then
   echo "✅ Exist! functions/fisher.fish" 
@@ -275,8 +318,14 @@ else
   curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 fi
 
+
+
+
+echo "====================="
 echo "🔎 Node.js chack.."
-echo "======================================="
+echo " tips nvm は 公式には掲載されなくなっていました。2021/08/16."
+echo "====================="
+sleep 3
 # node -v &> /dev/null
 # if [ $? -ne 0 ]; then
 if type "node -v" > /dev/null 2>&1; then
@@ -287,19 +336,19 @@ else
 fi
 
 
+
+
 # chsh -s /bin/zsh
 # chsh -s /bin/bash
-
-###########################
-## HOW TOO CUSTOM "FISH" ##
-###########################
+echo "###########################"
+echo "## HOW TOO CUSTOM 'FISH' ##"
+echo "###########################"
 # OPEN at Browser         
 # When press below command..   
 #
 # > $ fish_config
 
-
-# vim plug setting
+## vim plug setting
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
