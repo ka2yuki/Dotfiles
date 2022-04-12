@@ -9,6 +9,9 @@ sh dotfilesLink.sh
 zshenv > zprofile > zshrc > zloginの順  
 [more](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
 
+# 設定を変更する際
+必ず `/Dotfile` 下ファイル を 編集する。
+エイリアスを吐き出して使用している為。
 # iTerm2 
 Import
 1. Profile > Other Actions.. > Inport JSON Profiles...
