@@ -5,3 +5,5 @@ eval "$(rbenv init -)"
 
 ## Curl Error in High Sierra Version
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
+eval "$(rbenv init -)"

@@ -18,7 +18,7 @@ case ${OSTYPE} in
         alias ls='ls -a -G -F'
         # local SETTINGS The VSCode.settings and Markdwon.css to SAME GIT-REPO
         # ln -fnsv ${PWD}/VSCode/settings.json ${HOME}/Library/Application\ Support/Code/User/settings.json
-        ln -fnsv ${PWD}/md_preview.css ${HOME}/Library/Application\ Support/Code/User/md_preview.css
+        # ln -fnsv ${PWD}/md_preview.css ${HOME}/Library/Application\ Support/Code/User/md_preview.css
         ;;
     linux*)
         #Linux用の設定
@@ -334,7 +334,14 @@ sleep 3
 # if [ $? -ne 0 ]; then
 if type "node -v" > /dev/null 2>&1; then
   echo "🐖\".. NOT exist! Node.js"
-  brew install node
+  # brew install node
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+  nvm install stable
+  echo "doc : https://github.com/nvm-sh/nvm"
 else
   echo "✅ Exist! Node.js" 
 fi

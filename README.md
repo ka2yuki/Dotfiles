@@ -1,4 +1,4 @@
-# Clone
+# 🚀 Clone
 ```zsh
 git clone https://github.com/ka2yuki/Dotfiles.git
 cd Dotfiles
@@ -6,34 +6,48 @@ ls -a
 
 sh dotfilesLink.sh
 ```
-
-
 zshenv > zprofile > zshrc > zloginの順  
 [more](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
 
+# iTerm2 
+Import
+1. Profile > Other Actions.. > Inport JSON Profiles...
+2. Select file : `Dotfiles/iterms/Profiles.json`
 
-# added Log
+Save
+1. Profile > Other Actions.. > Save All Files as JSON...
+2. Select file : `Dotfiles/iterms/.`
+3. Replace Saving.
+# Added Log
 - [fzf](https://github.com/jethrokuan/fzf): 曖昧(fuzzy)検索（よく分からないが、便利そう）
 - [fish](https://fishshell.com/)
 - 2020/10/18
 
-# FISH Settings
-[~/.config/fish/config.fish](https://fishshell.com/docs/current/faq.html?highlight=config#how-do-i-run-a-command-every-login-what-s-fish-s-equivalent-to-bashrc-or-profile)
-## How do I set my prompt?
-`~/.config/fish/functions/fish_prompt.fish`
-You can also use the Web configuration tool, `$ fish_config`
-## Custom Color
-- [Variables for changing highlighting colors¶
-](https://fishshell.com/docs/current/index#variables-color)
-- [set_color](https://fishshell.com/docs/current/cmds/set_color.html?highlight=color#set-color-set-the-terminal-color)
-## Commands
-[Commands](https://fishshell.com/docs/current/commands.html?highlight=alias)
+# FISH 🐠 Shell 🍣
 
-# shell cmd tips!
-- [これだけ覚えておけばOK！](https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a)
+## How to set config file?
+- [~/.config/fish/config.fish](https://fishshell.com/docs/current/faq.html?highlight=config#how-do-i-run-a-command-every-login-what-s-fish-s-equivalent-to-bashrc-or-profile)
+- `fish_config`
+- Custom Color
+  - [Variables for changing highlighting colors¶
+  ](https://fishshell.com/docs/current/index#variables-color)
+  - [set_color](https://fishshell.com/docs/current/cmds/set_color.html?highlight=color#set-color-set-the-terminal-color)
+- Other Commands
+  - [Commands](https://fishshell.com/docs/current/commands.html?highlight=alias)
 
-# コマンドの有無
-[コマンドの有無による条件分岐](https://qiita.com/8ayac/items/b6b6f0a385d08659316b | qiita)
+.
+.
+.
+
+
+---
+---
+# How to write Shell.
+## 📚
+- コマンドライン でも使える SELL.
+- [これだけ覚えておけばOK！シェルスクリプトで冪等性を担保するためのTips集 | qiita](https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a)
+- [コマンドの有無による条件分岐 | qiita](https://qiita.com/8ayac/items/b6b6f0a385d08659316b)
+- https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a
 
 ```sh
 if type "コマンド" > /dev/null 2>&1; then
@@ -43,14 +57,22 @@ else
     echo "NOT exist!" #コマンドが存在しないときの処理
 fi
 ```
-**`/dev/null 2>&1`**
-標準エラー出力 の結果を 標準出力 にマージして、`/dev/null`に捨てる.
-📌MUST READ!! [標準エラー出力を捨てるな! | qiita](https://qiita.com/ritukiii/items/b3d91e97b71ecd41d4ea)
-`
-# 変数
-- 変数名の先頭に $ を付けない ($ は参照時のみ)
-- ＝ の前後にスペースはNG。
-- 変数名の大文字と小文字は区別されるため変数 VAR と変数 var は別物
+説明：
+```sh
+type "コマンド" > /dev/null 2>&1; 
+# 1: type "コマンド" 
+# 2: 2>&1; ($は変数参照)
+# 3: > /dev/null 
+```
+1. 標準エラー出力結果
+2. 標準出力へマージ
+3. 捨てる.`dev/null`に.
+
+📌 : [標準エラー出力を捨てるな! | qiita](https://qiita.com/ritukiii/items/b3d91e97b71ecd41d4ea)
+## 変数の使い方
+- 変数名の先頭に $ を付けない. (<u>**$** は **参照時** のみ</u>)
+- <u>＝ 前後</u> に、<u>スペースはNG</u>。
+- 変数名の <u>**大文字と小文字は区別**</u> されるため変数 VAR と変数 var は別物
 - シェル変数に「型」は存在しないので、文字列や数値を区別なく設定できる。
 ```sh
 VAR1=123456
@@ -116,6 +138,3 @@ $PWD
 ```sh
 $OSTYPE # OS 別に 処理を分ける際など。
 ```
-
-# shell cmd tips!
-https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a
