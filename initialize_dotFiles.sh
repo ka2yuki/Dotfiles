@@ -12,6 +12,14 @@ case ${OSTYPE} in
           brew upgrade
         else
           echo 'not brew running..'
+          echo '🍺 brew install 🎉 🍺 '
+          sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          # https://brew.sh/
+
+          echo "run brew doctor ..."
+          which brew >/dev/null 2>&1 && brew doctor
+          echo "run brew update ..."
+          which brew >/dev/null 2>&1 && brew update
         fi
 
         export CLICOLOR=1
@@ -52,9 +60,10 @@ esac
 # DOCUMENT: https://docs.docker.jp/compose/rails.html
 
 
-
+# Create synbol link.
 ln -sf ${PWD}/zsh/.zsh_profile ${HOME}/.zsh_profile
 ln -sf ${PWD}/zsh/.zshrc ${HOME}/.zshrc
+ln -sf ${PWD}/zsh/.zprofile ${HOME}/.zprofile
 ln -sf ${PWD}/bash/.bash_profile ${HOME}/.bash_profile
 ln -sf ${PWD}/bash/.bashrc ${HOME}/.bashrc
 ln -sf ${PWD}/bash/.bashrc.alias ${HOME}/.bashrc.alias
@@ -62,10 +71,15 @@ ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
 ln -sf ${PWD}/.sqliterc ${HOME}/.sqliterc
 
 
+# 上記 .bash_profile に追記したモノを 更新させる。
+# export PATH=$PATH:追加するディレクトリ名
+source $HOME/.bash_profile
+source $HOME/.zsh_profile
+source $HOME/.zshrc
 
 
 echo "======================================="
-echo "rbenv install"
+echo "Try rbenv install"
 echo "======================================="
 sleep .2
 if type 'rbenv' > /dev/null 2>&1; then
@@ -78,21 +92,7 @@ else
 
   # git clone https://github.com/rbenv/rbenv.git ~/.rbenv
   # cd ~/.rbenv && src/configure && make -C src
-  echo "When not throgh PATH."
-  # export PATH=$PATH:追加するディレクトリ名
-  # echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile 
-  echo 'export PATH="$HOME/.rbenv/shims:$PATH"' >> $HOME/.bash_profile 
-  echo 'export PATH="$HOME/.rbenv/shims:$PATH"' >> $HOME/.zsh_profile 
-  echo 'eval "$(rbenv init -)"' >> $HOME/.bash_profile
-  echo 'eval "$(rbenv init -)"' >> $HOME/.zsh_profile
-  echo 'eval "$(rbenv init -)"' >> $HOME/.zshrc
-  # 上記 .bash_profile に追記したモノを 更新させる。
-  source $HOME/.bash_profile
-  source $HOME/.zsh_profile
-  source $HOME/.zshrc
-  # echo 'eval "$(rbenv init -)"' >> ~/.bash_profile 
-  # or
-  # eval "$(rbenv init -)"
+
 
   echo '!!Check rbenv with rbenv-docker..'
   echo "----------------------------------"

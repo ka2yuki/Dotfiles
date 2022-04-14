@@ -4,11 +4,12 @@ git clone https://github.com/ka2yuki/Dotfiles.git
 cd Dotfiles
 ls -a
 
-sh dotfilesLink.sh
+sh initialize_dotFiles.sh
 ```
-zshenv > zprofile > zshrc > zloginの順  
-[more](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
+読み込まれ順.
+zshenv > zprofile > zshrc > zloginの順. [more](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
 
+# 📦 Download⇣Applications.⇣
 # 設定を変更する際
 必ず `/Dotfile` 下ファイル を 編集する。
 エイリアスを吐き出して使用している為。
@@ -26,6 +27,10 @@ Save
 - [fish](https://fishshell.com/)
 - 2020/10/18
 
+# ナゾ
+## Todo:
+- [ ] install というファイルな、何の為にあるのか、いつなぜ追加したのか、わからない。ペンディング.
+- [ ] Fish か Zsh がいいのか。
 # FISH 🐠 Shell 🍣
 
 ## How to set config file?
@@ -46,7 +51,7 @@ Save
 ---
 ---
 # How to write Shell.
-## 📚
+## 📚 ここでしか、Shellを書かないので、メモ 📚
 - コマンドライン でも使える SELL.
 - [これだけ覚えておけばOK！シェルスクリプトで冪等性を担保するためのTips集 | qiita](https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a)
 - [コマンドの有無による条件分岐 | qiita](https://qiita.com/8ayac/items/b6b6f0a385d08659316b)
