@@ -1,9 +1,10 @@
 # if use rbenv. its version contorol ruby.
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(rbenv init -)"
 #this berow RVM. not use.
 #if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
 ## Curl Error in High Sierra Version
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="$HOME/.rbenv/shims:$PATH"
+# eval "$(rbenv init -)"

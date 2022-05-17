@@ -65,13 +65,18 @@ else
     echo "NOT exist!" #コマンドが存在しないときの処理
 fi
 ```
-説明：
+↑説明：
 ```sh
 type "コマンド" > /dev/null 2>&1; 
 # 1: type "コマンド" 
-# 2: 2>&1; ($は変数参照)
+# 2: 2>&1; 
 # 3: > /dev/null 
+######補足#######
+# $	変数展開($FOO)
+# &	コマンドをバックグランド実行(cmd &)
+
 ```
+[補足link](https://www.tohoho-web.com/ex/shell.html#meta)
 1. 標準エラー出力結果
 2. 標準出力へマージ
 3. 捨てる.`dev/null`に.
