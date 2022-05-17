@@ -11,9 +11,25 @@ case ${OSTYPE} in
         if type 'brew upgrade' > /dev/null 2>&1; then
           brew upgrade
         else
-          echo 'not brew running..'
-          echo '🍺 brew install 🎉 🍺 '
-          sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo 'Not brew running..'
+          sleep 3
+          echo "🔎 Check Brew🍺 now"
+          sleep 1
+          echo 🐣
+          sleep .3
+          echo .
+          sleep .3
+          echo .
+          sleep 1
+          echo 🐥
+          sleep .3
+          echo .
+          sleep .3
+          echo .
+          sleep 1
+          echo '🍺 Homebrew install 🎉 🍺 '
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          # sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           # https://brew.sh/
 
           echo "run brew doctor ..."
@@ -59,7 +75,6 @@ esac
 # docker-compose run web rails new . --force --database=postgresql
 # DOCUMENT: https://docs.docker.jp/compose/rails.html
 
-
 # Create synbol link.
 ln -sf ${PWD}/zsh/.zsh_profile ${HOME}/.zsh_profile
 ln -sf ${PWD}/zsh/.zshrc ${HOME}/.zshrc
@@ -70,12 +85,20 @@ ln -sf ${PWD}/bash/.bashrc.alias ${HOME}/.bashrc.alias
 ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
 ln -sf ${PWD}/.sqliterc ${HOME}/.sqliterc
 
+# cp -f ${PWD}/zsh/.zsh_profile ${HOME}/.zsh_profile
+# cp -f ${PWD}/zsh/.zshrc ${HOME}/.zshrc
+# cp -f ${PWD}/zsh/.zprofile ${HOME}/.zprofile
+# cp -f ${PWD}/bash/.bash_profile ${HOME}/.bash_profile
+# cp -f ${PWD}/bash/.bashrc ${HOME}/.bashrc
+# cp -f ${PWD}/bash/.bashrc.alias ${HOME}/.bashrc.alias
+# cp -f ${PWD}/.vimrc ${HOME}/.vimrc
+# cp -f ${PWD}/.sqliterc ${HOME}/.sqliterc
 
 # 上記 .bash_profile に追記したモノを 更新させる。
 # export PATH=$PATH:追加するディレクトリ名
-source $HOME/.bash_profile
-source $HOME/.zsh_profile
-source $HOME/.zshrc
+source ~/.bash_profile
+source ~/.zsh_profile
+source ~/.zshrc
 
 
 echo "======================================="
@@ -170,158 +193,18 @@ else
 fi
 
 
-# =======================================
-# echo "🔎 Check Brew🍺 now"
-# sleep 1
-# echo 🐣
-# sleep .3
-# echo .
-# sleep .3
-# echo .
-# sleep 1
-# echo 🐥
-# sleep .3
-# echo .
-# sleep .3
-# echo .
-# sleep 1
-# echo "======================================="
-# if type "brew" > /dev/null 2>&1; then
-#   echo "Exist! brew ✅" #コマンドが存在する時の処理
-# else
-#   echo "NOT exist Brew!" #コマンドが存在しないときの処理
-#   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-# fi
-
-
-# Check for Homebrew
-# if test ! $(which brew)
-# then
-#   echo "🐽 NOT exist Brew!" #コマンドが存在しないときの処理
-#   echo "  Installing Homebrew for you."
-#   # Install the correct homebrew for each OS type
-#   if test "$(uname)" = "Darwin"
-#   then
-#     /bin/bash cd $HOME && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#     # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#     # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-#     sleep 1
-#     echo 🐓
-#     sleep .3
-#     echo .
-#     sleep .3
-#     echo .
-#     sleep .3
-#     echo 🍗
-#     sleep 1
-#     echo "🎉 Installed! Brew🍺 " #コマンドが存在する時の処理
-#     sleep 1
-#   elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-#   then
-#     /bin/bash cd $HOME && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#     # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#     # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-#     sleep 1
-#     echo 🐓
-#     sleep .3
-#     echo .
-#     sleep .3
-#     echo .
-#     sleep .3
-#     echo 🍗
-#     sleep .3
-#     echo .
-#     sleep 1
-#     echo "🎉 Installed! Brew🍺 " #コマンドが存在する時の処理
-#     sleep 1
-#   fi
-# fi
-
-
+# sleep 5
+# echo "====================="
 # Other
-# ln -sf ${PWD}/Desktop/Dotfile/.gitconfig ${HOME}/.gitconfig
-cp ${PWD}/.gitconfig ${HOME}/.gitconfig
+# echo "====================="
+# ホストを晒すのは　NG。
 # sudo cp ${PWD}/hosts ${HOME}/etc/hosts
+
+# iterm2の設定の自動反映。
 # ln -sf ${PWD}/com.googlecode.iterm2.plist${PWD} 
-
-
-
-
-# fish cmd exist? check!
-# fish_config > /dev/null 2>&1
-# fi
-echo "======================================="
-echo "🔎 Check fish🐠.. "
-echo "======================================="
-# if type '$(which fish)' > /dev/null 2>&1; then
-# なぜか上記では 
-if [ -e "$(which fish)" ]; then
-  echo $(which fish >&1)
-  echo "✅ Exist! FISH" #コマンドが存在する時の処理
-  chsh -s $(which fish) 
-  sleep 3
-  # FISH=$(which fish)
-  # echo `/usr/local/bin/fish`
-  # echo $SHELL
-  # echo $FISH
-  # echo $($SHELL -eq $FISH)
-  # if test ! $($SHELL!=$FISH); then
-  # fi
-  # echo 'fish処理完了!!🎉'
-else
-  echo $(which fish >&2)
-  echo "🐷 NOT Exist! fish_config.. 🐷" #コマンドが存在しないときの処理
-  brew install fish
-  echo `fish`
-  echo 'fish処理完了!!🎉' 
-  sleep 3
-fi
-
-echo "======================================="
-echo "fish config setup"
-echo "======================================="
-
-################
-# fish config
-################
-# ln -sf ${PWD}/fish/config.fish ${HOME}/.config/fish/config.fish
-# echo "🔎 Check DIR ~/.config/fish/conf.d"
-# if [ -e ${HOME}/.config/fish/conf.d ]; then
-#   ln -sf ${PWD}/fish/alias.fish ${HOME}/.config/fish/conf.d/alias.fish
-# else
-#   mkdir ${HOME}/.config/fish/conf.d
-#   ln -sf ${PWD}/fish/alias.fish ${HOME}/.config/fish/conf.d/alias.fish
-# fi
-# ln -sf ${PWD}/fish/fish_prompt.fish ${HOME}/.config/fish/functions/fish_prompt.fish
-# ln -sf ${PWD}/fish/.fish_user_key_bindings.fish ${HOME}/.config/fish/functions/fish_user_key_bindings.fish
-###################
-# fish config END #
-###################
-
-
-# if [ $? -eq 127 ]; then
-#   echo "Exist! FISH" 
-# else
-#   echo "NOT exist!"
-#   brew install fish
-# fi
-echo "🔎 Now Check git.io/fisher"
-echo "======================================="
-echo "this's Fisher Extention-Management-Tool."
-sleep 3
-# install fisher for fish extention management tool.
-if [ -e "$HOME/.config/fish/functions/fisher.fish" ]; then
-  echo "✅ Exist! functions/fisher.fish" 
-else
-  echo "🐖 \".. NOT exist! functions/fisher.fish" 
-  sleep 1
-  echo 🐷
-  sleep 1
-  echo 🐽
-  sleep 1
-  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-fi
-
+# echo "====================="
+# Other
+# echo "====================="
 
 
 
@@ -346,74 +229,6 @@ else
   echo "✅ Exist! Node.js" 
 fi
 
-
-
-
-# chsh -s /bin/zsh
-# chsh -s /bin/bash
-echo "###########################"
-echo "## HOW TOO CUSTOM 'FISH' ##"
-echo "###########################"
-# OPEN at Browser         
-# When press below command..   
-#
-# > $ fish_config
-echo "--------------"
-echo "omy install.." # https://github.com/oh-my-fish/oh-my-fish
-echo "--------------"
-sleep 3
-curl -L https://get.oh-my.fish > install
-fish install --path=~/.local/share/omf --config=~/.config/omf
-
-
-## vim plug setting
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-omf install rbenv
-## VimにPowerlineの　fish版です。
-fisher add oh-my-fish/theme-bobthefish
-
-
-########################################
-# fish の　テーマを当てるため。 powerLine
-########################################
-echo "======================================="
-echo "powerline install at ~/fonts"
-echo "======================================="
-cd $HOME
-# 文字化け 改善
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd $HOME/fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts
-echo "ここにある."
-ls /Users/$USER/Library/Fonts 
-sleep 3
-echo "==========================="
-echo "使用できる PowerLine fonts."
-echo "==========================="
-sleep 2 
-ls /Users/o/Library/Fonts |grep Powerline
-echo "上記のフォントを使っているターミナルに設定しfish用にPowerLineを設定してください。"
-
-# =======================================
-# echo -e "\e[36;40;4m下線つき\e[m"
-# \e[ : start
-# color;background;style(underbar etc.)
-# m   : end
-COLOR_0="\e[36;41;4m"
-COLOR_1="\e[36;4m"
-COLOR_OFF="\e[m\n"
-bold=$(tput bold)
-normal=$(tput sgr0)
-# echo "${COLOR_1}"
-# echo "${COLOR_1}hoge${COLOR_OFF}"
-printf "${COLOR_1}hoge${COLOR_OFF}"
-# =======================================
 
 
 echo "======================================="
@@ -442,14 +257,14 @@ else
   brew tap homebrew/cask-fonts
 fi
 
+
+
+
 for i in `seq 5`
 do
   echo .
 done
-echo "==================="
-echo "PLEASE type 'fish'"
-echo "==================="
-echo 
+
 echo 
 echo "Done!!🎉"
 echo 
