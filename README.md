@@ -27,11 +27,8 @@ Save
 - [fish](https://fishshell.com/)
 - 2020/10/18
 
-# ナゾ
-## Todo:
-- [ ] install というファイルな、何の為にあるのか、いつなぜ追加したのか、わからない。ペンディング.
-- [ ] Fish か Zsh がいいのか。
-# FISH 🐠 Shell 🍣
+# 不明点
+- [ ] installというファイル
 
 ## How to set config file?
 - [~/.config/fish/config.fish](https://fishshell.com/docs/current/faq.html?highlight=config#how-do-i-run-a-command-every-login-what-s-fish-s-equivalent-to-bashrc-or-profile)
@@ -51,8 +48,8 @@ Save
 ---
 ---
 # How to write Shell.
-## 📚 ここでしか、Shellを書かないので、メモ 📚
-- コマンドライン でも使える SELL.
+## 📚 Shellのメモ 📚
+- コマンドライン でも使える
 - [これだけ覚えておけばOK！シェルスクリプトで冪等性を担保するためのTips集 | qiita](https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a)
 - [コマンドの有無による条件分岐 | qiita](https://qiita.com/8ayac/items/b6b6f0a385d08659316b)
 - https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a
