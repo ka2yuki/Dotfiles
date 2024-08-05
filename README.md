@@ -9,7 +9,7 @@ sh initialize_dotFiles.sh
 読み込まれ順.
 zshenv > zprofile > zshrc > zloginの順. [more](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
 
-# 📦 Download⇣Applications.⇣
+# 📦 DL ⇣Applications⇣
 # 設定を変更する際
 必ず `/Dotfile` 下ファイル を 編集する。
 エイリアスを吐き出して使用している為。
