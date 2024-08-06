@@ -30,6 +30,7 @@ Save
 3. Replace Saving.
 
 # TODO checklists
+- アプリインストールのコマンドを切り出すなど
 - [fzf](https://github.com/jethrokuan/fzf): 曖昧(fuzzy)検索:便利そう
 - [fish](https://fishshell.com/)
   
