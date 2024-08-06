@@ -1,4 +1,9 @@
-# 🚀 Clone
+# 検証OS
+- [x] Mac
+- [ ] WSL
+- [ ] Ubuntu
+
+# Clone
 ```zsh
 git clone https://github.com/ka2yuki/Dotfiles.git
 cd Dotfiles
@@ -6,14 +11,15 @@ ls -a
 
 sh initialize_dotFiles.sh
 ```
-読み込まれ順.
-zshenv > zprofile > zshrc > zloginの順. [more](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
+読み込み順：  
+- zshenv > zprofile > zshrc > zloginの順. [more](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
 
 # 📦 DL ⇣Applications⇣
-# 設定を変更する際
+## 設定を変更する際
 必ず `/Dotfile` 下ファイル を 編集する。
 エイリアスを吐き出して使用している為。
-# iTerm2 
+
+## iTerm2の設定
 Import
 1. Profile > Other Actions.. > Inport JSON Profiles...
 2. Select file : `Dotfiles/iterms/Profiles.json`
@@ -22,15 +28,17 @@ Save
 1. Profile > Other Actions.. > Save All Files as JSON...
 2. Select file : `Dotfiles/iterms/.`
 3. Replace Saving.
-# Added Log
-- [fzf](https://github.com/jethrokuan/fzf): 曖昧(fuzzy)検索（よく分からないが、便利そう）
+
+# TODO checklists
+- [fzf](https://github.com/jethrokuan/fzf): 曖昧(fuzzy)検索:便利そう
 - [fish](https://fishshell.com/)
-- 2020/10/18
+  
+2020/10/18
 
 # 不明点
 - [ ] installというファイル
 
-## How to set config file?
+# Fish shellについてのメモ
 - [~/.config/fish/config.fish](https://fishshell.com/docs/current/faq.html?highlight=config#how-do-i-run-a-command-every-login-what-s-fish-s-equivalent-to-bashrc-or-profile)
 - `fish_config`
 - Custom Color
@@ -40,15 +48,12 @@ Save
 - Other Commands
   - [Commands](https://fishshell.com/docs/current/commands.html?highlight=alias)
 
-.
-.
-.
-
 
 ---
 ---
-# How to write Shell.
-## 📚 Shellのメモ 📚
+# 📚Shell Note
+## How to write Shell.
+### Shellのメモ
 - コマンドライン でも使える
 - [これだけ覚えておけばOK！シェルスクリプトで冪等性を担保するためのTips集 | qiita](https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a)
 - [コマンドの有無による条件分岐 | qiita](https://qiita.com/8ayac/items/b6b6f0a385d08659316b)
@@ -78,7 +83,7 @@ type "コマンド" > /dev/null 2>&1;
 2. 標準出力へマージ
 3. 捨てる.`dev/null`に.
 
-📌 : [標準エラー出力を捨てるな! | qiita](https://qiita.com/ritukiii/items/b3d91e97b71ecd41d4ea)
+[標準エラー出力を捨てるな! | qiita](https://qiita.com/ritukiii/items/b3d91e97b71ecd41d4ea)
 ## 変数の使い方
 - 変数名の先頭に $ を付けない. (<u>**$** は **参照時** のみ</u>)
 - <u>＝ 前後</u> に、<u>スペースはNG</u>。
