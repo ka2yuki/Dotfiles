@@ -12,7 +12,7 @@ ls -a
 sh initialize_dotFiles.sh
 ```
 読み込み順：  
-- zshenv > zprofile > zshrc > zloginの順. [more](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
+- zshenv > zprofile > zshrc > zloginの順. [読み込み順 | qiita.com](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
 
 # 📦 DL ⇣Applications⇣
 ## 設定を変更する際
