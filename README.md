@@ -1,3 +1,7 @@
+# Todo
+- [ ] installファイルの理解
+- [ ] insatllファイルは何を参考にしたのか調査
+
 # 検証OS
 - [x] Mac
 - [ ] WSL
