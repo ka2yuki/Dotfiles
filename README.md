@@ -1,5 +1,5 @@
 # Todo
-- [ ] installファイルの理解
+- [ ] [install](https://github.com/ka2yuki/Dotfiles/blob/master/install)ファイルの理解
 - [ ] insatllファイルは何を参考にしたのか調査
 
 # 検証OS
