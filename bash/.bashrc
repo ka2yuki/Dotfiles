@@ -1,22 +1,5 @@
 # .bashrc
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin
-
-# load nvm
-export NVM_DIR="$HOME/.nvm"
-[ "$BASH_VERSION" ] && npm() { 
-    # hack: avoid slow npm sanity check in nvm
-    if [ "$*" == "config get prefix" ]; then which node | sed "s/bin\/node//"; 
-    else $(which npm) "$@"; fi 
-}
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-rvm_silence_path_mismatch_check_flag=1 # prevent rvm complaints that nvm is first in PATH
-unset npm # end hack
-
-
-# User specific aliases and functions
-alias python=python3.6
-
 # modifications needed only in interactive mode
 if [ "$PS1" != "" ]; then
     # Set default editor for git
@@ -59,60 +42,3 @@ if [ "$PS1" != "" ]; then
 ╰─○ "
 fi
 
-[[ -s "$HOME/.rvm/environments/default" ]] && source "$HOME/.rvm/environments/default"
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# .bashrc settings from GitHub
-# https://github.com/yasslab/cloud9_bashrc
-
-peco-select-history() {
-    declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
-    READLINE_LINE="$l"
-    READLINE_POINT=${#l}
-}
-bind -x '"\C-r": peco-select-history'
-
-#alias hub-pr="hub pull-request | open"
-#alias git="hub"
-alias ping-loop="while true; do ping www.google.com; sleep 3; done;"
-alias gommit="git commit"
-alias tag-gen="ripper-tags -e -R -f TAGS"
-alias h="heroku"
-
-alias la="ls -a"
-alias lf="ls -F"
-alias ll="ls -l"
-alias lv="less"
-
-alias e="emacs -nw"
-alias g="git"
-alias ga="git add -A"
-alias gc="git commit -m"
-alias gp="git push"
-#alias gs="git status"
-alias gd="git diff"
-alias gl="git log --pretty='format:%Cblue[%ad] %Cgreen%an %Creset%s' --date=short"
-alias gr="git remote -v"
-alias v="vim"
-alias r="rails"
-alias bi="bundle install"
-alias be="bundle exec"
-
-# https://github.com/yasslab/cloud9_bashrc/blob/master/.bashrc
-
-
-##############
-### source ###
-##############
-
-#### Aliases
-# 
-[ -r ~/d/dotfiles/.bashrc.alias ] && source ~/d/dotfiles/.bashrc.alias
-
-#### ENV
-# 
-[ -r ~/d/dotfiles/.bashrc.env ] && source ~/d/dotfiles/.bashrc.env
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

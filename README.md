@@ -57,8 +57,8 @@ Save
 ---
 ---
 # 📚Shell Note
-## How to write Shell.
-### Shellのメモ
+## How to write
+### Shellメモ
 - コマンドライン でも使える
 - [これだけ覚えておけばOK！シェルスクリプトで冪等性を担保するためのTips集 | qiita](https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a)
 - [コマンドの有無による条件分岐 | qiita](https://qiita.com/8ayac/items/b6b6f0a385d08659316b)
@@ -75,20 +75,14 @@ fi
 ↑説明：
 ```sh
 type "コマンド" > /dev/null 2>&1; 
-# 1: type "コマンド" 
-# 2: 2>&1; 
-# 3: > /dev/null 
-######補足#######
-# $	変数展開($FOO)
-# &	コマンドをバックグランド実行(cmd &)
-
 ```
-[補足link](https://www.tohoho-web.com/ex/shell.html#meta)
+
+
+[補足: tohoho-web.com](https://www.tohoho-web.com/ex/shell.html#meta)
 1. 標準エラー出力結果
 2. 標準出力へマージ
 3. 捨てる.`dev/null`に.
-
-[標準エラー出力を捨てるな! | qiita](https://qiita.com/ritukiii/items/b3d91e97b71ecd41d4ea)
+- [標準エラー出力を捨てるな! | qiita](https://qiita.com/ritukiii/items/b3d91e97b71ecd41d4ea)
 ## 変数の使い方
 - 変数名の先頭に $ を付けない. (<u>**$** は **参照時** のみ</u>)
 - <u>＝ 前後</u> に、<u>スペースはNG</u>。
