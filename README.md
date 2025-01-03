@@ -1,13 +1,10 @@
-# Todo
-- [ ] [install](https://github.com/ka2yuki/Dotfiles/blob/master/install)ファイルの理解
-- [ ] insatllファイルは何を参考にしたのか調査
-
 # 検証OS
-- [x] Mac
 - [ ] WSL
 - [ ] Ubuntu
+- [ ] Mac
 
-# Clone
+
+# 📦Clone
 ```zsh
 git clone https://github.com/ka2yuki/Dotfiles.git
 cd Dotfiles
@@ -15,15 +12,14 @@ ls -a
 
 sh initialize_dotFiles.sh
 ```
-読み込み順：  
-- zshenv > zprofile > zshrc > zloginの順. [読み込み順 | qiita.com](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
+- shell読み込み順：  
+- zshenv > zprofile > zshrc > zlogin 順: [読み込み順 | qiita.com](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
 
-# 📦 DL ⇣Applications⇣
-## 設定を変更する際
-必ず `/Dotfile` 下ファイル を 編集する。
-エイリアスを吐き出して使用している為。
+設定を変更する際:  
+- `/Dotfile`から エイリアス を`~`へ リンクしている
 
-## iTerm2の設定
+# Terminal
+### iTerm2の設定
 Import
 1. Profile > Other Actions.. > Inport JSON Profiles...
 2. Select file : `Dotfiles/iterms/Profiles.json`
@@ -33,17 +29,20 @@ Save
 2. Select file : `Dotfiles/iterms/.`
 3. Replace Saving.
 
-# TODO checklists
+### TODO2 checklists
+- [ ] [install](https://github.com/ka2yuki/Dotfiles/blob/master/install)ファイルの理解
+- [ ] insatllファイルは何を参考にしたのか..調査
 - アプリインストールのコマンドを切り出すなど
 - [fzf](https://github.com/jethrokuan/fzf): 曖昧(fuzzy)検索:便利そう
 - [fish](https://fishshell.com/)
   
 2020/10/18
 
-# 不明点
+# 📚Shell Note
+不明点
 - [ ] installというファイル
 
-# Fish shellについてのメモ
+## Fish shellについてのメモ
 - [~/.config/fish/config.fish](https://fishshell.com/docs/current/faq.html?highlight=config#how-do-i-run-a-command-every-login-what-s-fish-s-equivalent-to-bashrc-or-profile)
 - `fish_config`
 - Custom Color
@@ -54,9 +53,6 @@ Save
   - [Commands](https://fishshell.com/docs/current/commands.html?highlight=alias)
 
 
----
----
-# 📚Shell Note
 ## How to write
 ### Shellメモ
 - コマンドライン でも使える

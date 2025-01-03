@@ -1,6 +1,4 @@
-
-
-# fish cmd exist? check!
+# - fish cmd exist? check!
 # fish_config > /dev/null 2>&1
 # fi
 echo "======================================="
