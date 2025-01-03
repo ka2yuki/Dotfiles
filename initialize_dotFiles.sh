@@ -67,21 +67,17 @@ esac
 # =======================================
 # git clone
 
-# Docker-Compose INSTALL
+# When use Docker: INSTALL: docker-compose
 # sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 # sudo chmod +x /usr/local/bin/docker-compose
 
-# プロジェクトのビルド
+# When use Docker: BUILD: 環境構築
 # docker-compose run web rails new . --force --database=postgresql
 # DOCUMENT: https://docs.docker.jp/compose/rails.html
 
-# Create synbol link.
-ln -sf ${PWD}/zsh/.zsh_profile ${HOME}/.zsh_profile
+# CREATE: synbol link.
 ln -sf ${PWD}/zsh/.zshrc ${HOME}/.zshrc
-ln -sf ${PWD}/zsh/.zprofile ${HOME}/.zprofile
-ln -sf ${PWD}/bash/.bash_profile ${HOME}/.bash_profile
 ln -sf ${PWD}/bash/.bashrc ${HOME}/.bashrc
-ln -sf ${PWD}/bash/.bashrc.alias ${HOME}/.bashrc.alias
 ln -sf ${PWD}/.vimrc ${HOME}/.vimrc
 ln -sf ${PWD}/.sqliterc ${HOME}/.sqliterc
 
@@ -96,8 +92,7 @@ ln -sf ${PWD}/.sqliterc ${HOME}/.sqliterc
 
 # 上記 .bash_profile に追記したモノを 更新させる。
 # export PATH=$PATH:追加するディレクトリ名
-source ~/.bash_profile
-source ~/.zsh_profile
+source ~/.bashrc
 source ~/.zshrc
 
 
@@ -115,7 +110,6 @@ else
 
   # git clone https://github.com/rbenv/rbenv.git ~/.rbenv
   # cd ~/.rbenv && src/configure && make -C src
-
 
   echo '!!Check rbenv with rbenv-docker..'
   echo "----------------------------------"
@@ -141,7 +135,6 @@ else
   sleep 3
   exit
 
-
   # ++++++++++++++++++++
   # GIT install version | not used.
   # ++++++++++++++++++++
@@ -165,9 +158,9 @@ else
 fi
 
 
-echo "======================================="
-echo "GIT INSTALL"
-echo "======================================="
+# echo "======================================="
+# echo "GIT INSTALL"
+# echo "======================================="
 if type 'git' > /dev/null 2>&1; then
   echo '✅ Exist! git cmd.'
 else
@@ -191,8 +184,6 @@ else
   # バージョン確認コマンド
   echo NEW:$(git --version), OLD:$OLD_GIT_VER
 fi
-
-
 # sleep 5
 # echo "====================="
 # Other
@@ -205,8 +196,6 @@ fi
 # echo "====================="
 # Other
 # echo "====================="
-
-
 
 echo "====================="
 echo "🔎 Node.js chack.."
@@ -229,19 +218,13 @@ else
   echo "✅ Exist! Node.js" 
 fi
 
-
-
 echo "======================================="
-echo "Theme 'DRACULA️🧛' ️install for Hyper.app"
+echo "🧛install theme for Hyper.app"
 echo https://draculatheme.com/
 printf "${COLOR_1}https://draculatheme.com/${COLOR_OFF}"
 echo "======================================="
-# Theme "DRACULA🧛🏻‍" INSTALL🎉:: https://draculatheme.com/
-git clone https://github.com/dracula/iterm.git
-# to hyper
+# git clone https://github.com/dracula/iterm.git
 hyper install hyper-dracula
-# ADD cmd+. , Type to Fonts NAME!!
-
 
 
 echo "======================================="
@@ -256,9 +239,6 @@ else
   brew cask install font-hackge
   brew tap homebrew/cask-fonts
 fi
-
-
-
 
 for i in `seq 5`
 do

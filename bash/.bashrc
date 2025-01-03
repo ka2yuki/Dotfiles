@@ -1,4 +1,5 @@
 # .bashrc
+# this file clone
 
 # modifications needed only in interactive mode
 if [ "$PS1" != "" ]; then

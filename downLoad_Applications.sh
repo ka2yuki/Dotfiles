@@ -1,10 +1,11 @@
-# Install Chrome.app
 # Check to Install available Application list. 
 # - https://formulae.brew.sh/cask/
+# 
 # Homebrew Commands
 # - brew search <formula>
 # - brew install --cask  : <- single install.
 # - brew install --casks : <- multiple install.
+# パソコンを初期設定する際のアプリsetup
 
 brew install --casks google-chrome firefox \
 	iterm2 hyper visual-studio-code \
@@ -15,3 +16,6 @@ brew install --casks google-chrome firefox \
 
 # Check latest Git Version. https://git-scm.com/
 brew install git alfred
+
+# next Challenge
+# - apt install

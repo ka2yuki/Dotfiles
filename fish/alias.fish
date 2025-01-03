@@ -14,17 +14,8 @@ alias o='open'
 alias chrome="open -a /Applications/Google\ Chrome.app"
 alias s='source'
 
-alias r='rm -rf'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-
 ## tree cmd. for react.
 alias tree='tree -IF "n*|pub*|pack*|READ*|yarn*|report*"'
-
-## npm
-alias n='npm'
-alias nr ='npm run'
 
 ## git
 alias g='git'
