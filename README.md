@@ -1,3 +1,7 @@
+<div class="pc qr-bmc" style="width: 150px;margin: 0px auto;">
+  <img loading="lazy" src="bmc_qr.png" alt="qrl-img-buymyacoffee" />
+</div>
+
 # 検証OS
 - [ ] WSL
 - [ ] Ubuntu
